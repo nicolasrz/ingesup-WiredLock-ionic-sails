@@ -1,0 +1,26 @@
+<div ng-controller='DashboardCtrl'>
+	<ion-view view-title="Dashboard">
+	 	<ion-content class="padding">
+		 	<div class="list card">
+		 		<div class="item item-divider">Connexion</div>
+		 		<div class="item item-body">
+		 			<div>
+		 				<form ng-submit="connection()">
+		 					<class div="list">
+		 						<label class="item item-input">
+		 							<input type="text" placeholder="name" ng-model="dash.name">
+		 						</label>
+		 						<label class="item item-input">
+		 							<input type="password"  placeholder="Password" ng-model="dash.password">
+		 						</label>
+		 						<button type="submit" class="button button-block button-positive">Se connecter</button>
+		 					</div>
+		 				</form>
+		 				<span>Ceci est un span pour test , le login est : __{{login}}__</span>
+		 			</div>
+		 		</div>
+		 	</div>
+	 	</ion-content>
+</ion-view>
+</div>
+

@@ -1,0 +1,21 @@
+<div ng-controller='DashboardCtrl'>
+	<ion-view view-title="Dashboard">
+	 	<ion-content class="padding">
+		 	<div class="list card">
+		 		<ion-list>
+		 			<ion-item ng-repeat="dashlist in dashlists">
+			 			<div class="item item-divider">{{dashlist.title}}</div>
+			 			<div class="item item-body">
+			 				<div>
+								
+									{{dashlist.content}}
+								
+			 				</div>
+		 			</div>
+		 			</ion-item>
+		 		</ion-list>
+		 	</div>
+	 	</ion-content>
+</ion-view>
+</div>
+
