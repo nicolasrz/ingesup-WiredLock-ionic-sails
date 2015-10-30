@@ -20,7 +20,9 @@ angular.module('starter.controllers.dashboard', ['ionic','authserv.service'])
 		var password = $scope.dash.password;
 		var success = function(res){
 				console.log(res)
-				if (res) $state.go( "dashboard" ); //redirection vers la bonne vue
+				if (res) {
+					$http.defaults.headers.common["authorization"] = 'Bearer '+res.token;
+					$state.go( "dashboard" ); //redirection vers la bonne vue
 		}
 		var error = function(err){
 			console.log(err)
