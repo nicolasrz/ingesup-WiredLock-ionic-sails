@@ -1,18 +1,24 @@
 angular.module('authserv.service',[])
 
-.service('AuthServ',function($http){
+.service('AuthServ',function($http, $q){
 	var connection;
 	
+
 	this.getConnexion = function(name,password){
-		$http.post("http://10.33.1.233:1337/api/login/",  { "name": name, "password": password })
+		
+		var defer = $q.defer(); // permet de récupérer la réponse déférée	
+		$http.post("http://localhost:1337/api/login/",  { "name": name, "password": password })
 		.success(function(data) {
-        	alert("SUCCESS!");
-			console.log(data);	
+        	
+			console.log("success " + data);
+			return defer.resolve(data);
     	})
     	.error(function(data) {
-        	alert("ERROR");
+        	
 			console.log(data);
+			return defer.reject(data);
     	})
+    	return defer.promise; // envoie d'une promesse d'envoi de réponse
+	    
 	};
-
-});
+})

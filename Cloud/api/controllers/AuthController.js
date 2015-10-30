@@ -11,15 +11,16 @@ module.exports = {
         var password = req.param('password');
         if(!name || !password) return res.json(401,{err:'name and password are required'})
         User.findOne({name:name}, function(err,user){
-            if(err)console.log(err);
+            if(err) console.log(err);
             if(err) return res.json(403, {err:'forbidden'});
             if(!user) return res.json(401,{err:'invalid name or password'});
             User.comparePassword(password,user, function(err,valid){
-                if(err)console.log(err);
+                if(err) console.log(err);
                 if(err) return res.json(403, {err:'forbidden'});
                 if(!valid)return res.json(401,{err:'invalid name or password'});
                 token = JwtHandler.generate({name:user.name,id: user.id});
                 user.token = token;
+                //console.log('je suis valide')
                 user.save(function(err){
                     if(err) return res.json(403, {err:'forbidden'});
                     return res.json(

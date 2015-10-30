@@ -18,9 +18,15 @@ angular.module('starter.controllers.dashboard', ['ionic','authserv.service'])
 
 		var name = $scope.dash.name;
 		var password = $scope.dash.password;
-		
-		$scope.res = AuthServ.getConnexion(name,password);
-	
+		var success = function(res){
+				console.log(res)
+				if (res) $state.go( "dashboard" ); //redirection vers la bonne vue
+		}
+		var error = function(err){
+			console.log(err)
+		};
+		// Le .then permet d'attendre la "promesse" de l'asynchrone de connexion
+		AuthServ.getConnexion(name,password).then(success,error);
 	};
 
 
