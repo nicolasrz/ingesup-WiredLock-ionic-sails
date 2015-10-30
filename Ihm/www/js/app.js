@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers.dashboard', 'starter.services','starter.controllers.home',
+angular.module('starter', ['ionic', 'starter.controllers.dashboard', 'starter.controllers.inscription', 'starter.services','starter.controllers.home',
 						   'authserv.service'])
 
 	.run(function($ionicPlatform) {
@@ -74,7 +74,7 @@ angular.module('starter', ['ionic', 'starter.controllers.dashboard', 'starter.se
 		}
 	})
 
-		.state('tab.account', {
+		.state('tab.accounewnt', {
 		url: '/account',
 		views: {
 			'tab-account': {
@@ -87,6 +87,11 @@ angular.module('starter', ['ionic', 'starter.controllers.dashboard', 'starter.se
 		.state('dashboard', {
 			url: '/dashboard',
 		templateUrl: 'templates/dashboard/listDashboard.html'
+	})
+
+		.state('new', {
+			url: '/user',
+			templateUrl: 'templates/user/inscription.html'
 	})
 
 

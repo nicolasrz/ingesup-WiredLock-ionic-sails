@@ -1,0 +1,26 @@
+<div ng-controller='inscriptionCtrl'>
+	<ion-view view-title="inscription">
+	 	<ion-content class="padding">
+		 	<div class="list card">
+		 		<div class="item item-divider">Inscription</div>
+		 		<div class="item item-body">
+		 			<div>
+		 				<form ng-submit="inscription()">
+		 					<class div="list">
+		 						<label class="item item-input">
+		 							<input type="text" placeholder="name" ng-model="insc.name">
+		 						</label><label class="item item-input">
+		 							<input type="text" placeholder="email" ng-model="insc.email">
+		 						</label>
+		 						<label class="item item-input">
+		 							<input type="password"  placeholder="Password" ng-model="insc.password">
+		 						</label>
+		 						<button type="submit" class="button button-block button-positive">Inscription</button>
+		 					</div>
+		 				</form>
+		 			</div>
+		 		</div>
+		 	</div>
+	 	</ion-content>
+</ion-view>
+</div>

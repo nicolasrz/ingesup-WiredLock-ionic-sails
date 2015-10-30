@@ -15,11 +15,12 @@ module.exports = {
         User.create(params, function(err, user) {
 
             if (err) return next(err);
+                
 
             res.status(201);
-
-            res.json(user);
-
+            //res.json(user);
+            return res.json({user : user});
+            
         });
 
     },

@@ -40,5 +40,8 @@ angular.module('starter.controllers.dashboard', ['ionic','authserv.service'])
 		console.log('register');
 	};
 
+	$scope.newInscription = function () {
+    $state.go( 'new' );
+  	};
 
 }]);
