@@ -42,6 +42,4 @@ angular.module('starter.controllers.user', ['ionic', 'authserv.service'])
 		// Le .then permet d'attendre la "promesse" de l'asynchrone de connexion
 		AuthServ.getInformation(id).then(success,error);
 	};
-	}
-
 }]);

@@ -11,24 +11,25 @@ angular.module('starter.controllers.dashboard', ['ionic','authserv.service'])
 	  content: 'Ouverture porte de garage par Nicolas'	 },
 	{ title: '18h55',
 	  content: 'Fermture porte de garage par Nicolas'	 },
-];
+	];
 
 
 	$scope.connection = function(){
 
 		var name = $scope.dash.name;
 		var password = $scope.dash.password;
-		var success = function(res){
-				console.log(res)
-				if (res) {
-					$http.defaults.headers.common["authorization"] = 'Bearer '+res.token;
-					$state.go( "dashboard" ); //redirection vers la bonne vue
+		var success = function(res) {
+			console.log(res)
+			if (res) {
+				$http.defaults.headers.common["authorization"] = 'Bearer ' + res.token;
+				$state.go("dashboard"); //redirection vers la bonne vue
+			}
+			var error = function (err) {
+				console.log(err)
+			};
+			// Le .then permet d'attendre la "promesse" de l'asynchrone de connexion
+			AuthServ.getConnexion(name, password).then(success, error);
 		}
-		var error = function(err){
-			console.log(err)
-		};
-		// Le .then permet d'attendre la "promesse" de l'asynchrone de connexion
-		AuthServ.getConnexion(name,password).then(success,error);
 	};
 
 
@@ -46,4 +47,5 @@ angular.module('starter.controllers.dashboard', ['ionic','authserv.service'])
     $state.go( 'new' );
   	};
 
-}]);
+	}]
+);
