@@ -33,7 +33,7 @@ angular.module('starter.controllers.user', ['ionic', 'authserv.service'])
 	var success = function(res){
 		console.log(res);
 		if (res) {
-			$state.go( "information" ); //redirection vers la bonne vue
+			$state.go( "tab.compte" ); //redirection vers la bonne vue
 		}
 		};
 		var error = function(err){

@@ -61,7 +61,6 @@ angular.module('starter', ['ionic', 'starter.controllers.dashboard', 'starter.co
 				templateUrl: 'templates/menu/tab-home.html',
 				controller: 'HomeCtrl'
 			}
-
 		}
 	})
 		.state('tab.chat-detail', {
@@ -74,11 +73,11 @@ angular.module('starter', ['ionic', 'starter.controllers.dashboard', 'starter.co
 		}
 	})
 
-		.state('tab.accounewnt', {
-		url: '/account',
+		.state('tab.compte', {
+		url: '/compte',
 		views: {
 			'tab-account': {
-				templateUrl: 'templates/menu/tab-account.html',
+				templateUrl: 'templates/user/compte.html',
 				controller: 'AccountCtrl'
 			}
 		}
