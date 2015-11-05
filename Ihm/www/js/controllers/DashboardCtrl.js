@@ -1,7 +1,7 @@
 angular.module('starter.controllers.dashboard', ['ionic','authserv.service'])
 	.controller('DashboardCtrl', ['$scope', '$state' ,'AuthServ', function($scope,$state,AuthServ) {
 
-	$scope.dash = {};
+
 	$scope.dashlists = [
 	{ title: '13h30',
 	  content: 'Ouverture principale porte par Nicolas'	 },
@@ -14,38 +14,14 @@ angular.module('starter.controllers.dashboard', ['ionic','authserv.service'])
 	];
 
 
-	$scope.connection = function(){
-
-		var name = $scope.dash.name;
-		var password = $scope.dash.password;
-		var success = function(res) {
-			console.log(res)
-			if (res) {
-				$http.defaults.headers.common["authorization"] = 'Bearer ' + res.token;
-				$state.go("dashboard"); //redirection vers la bonne vue
-			}
-			var error = function (err) {
-				console.log(err)
-			};
-			// Le .then permet d'attendre la "promesse" de l'asynchrone de connexion
-			AuthServ.getConnexion(name, password).then(success, error);
-		}
-	};
-
 
 	$scope.logout = function(){
 
 		console.log('logout');
 	};
 
-	$scope.register = function(){
 
-		console.log('register');
-	};
 
-	$scope.newInscription = function () {
-    $state.go( 'new' );
-  	};
 
 	}]
 );
