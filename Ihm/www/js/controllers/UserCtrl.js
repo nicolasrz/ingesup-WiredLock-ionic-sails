@@ -29,6 +29,7 @@ angular.module('starter.controllers.user', ['ionic', 'authserv.service'])
 
       var id = $scope.infor.id;
 
+<<<<<<< HEAD
       var success = function(res){
       console.log(res);
       if (res) {
@@ -41,6 +42,20 @@ angular.module('starter.controllers.user', ['ionic', 'authserv.service'])
       // Le .then permet d'attendre la "promesse" de l'asynchrone de connexion
       AuthServ.getInformation(id,"user").then(success,error);
    };
+=======
+		var success = function(res){
+		console.log(res);
+		if (res) {
+			$state.go( "tab.account" ); //redirection vers la bonne vue
+		}
+		};
+		var error = function(err){
+			console.log(err);
+		};
+		// Le .then permet d'attendre la "promesse" de l'asynchrone de connexion
+		AuthServ.getInformation(id).then(success,error);
+	};
+>>>>>>> origin/master
 
    $scope.connection = function(){
 

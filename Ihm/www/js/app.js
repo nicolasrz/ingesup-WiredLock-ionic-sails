@@ -88,7 +88,14 @@ angular.module('starter', ['ionic', 'starter.controllers.dashboard', 'starter.co
 		}
 	})
 
+<<<<<<< HEAD
 
+=======
+		.state('tab.dashboard', {
+			url: '/dashboard',
+		templateUrl: '/templates/dashboard/listDashboard.html'
+	})
+>>>>>>> origin/master
 
 
 

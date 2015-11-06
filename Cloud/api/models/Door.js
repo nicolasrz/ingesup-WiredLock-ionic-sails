@@ -8,18 +8,18 @@
 module.exports = {
 
   attributes: {
-name:{
+    name:{
     type:'string',
     required: true
+  },
+  state:{
+    type: 'boolean',
+    value: 'false'
   },
   owners: {
     collection: 'User',
     via: 'doors'
   },
-  state: {
-  	type:'boolean',
-  	value:'false',
-  }
   }
 };
 

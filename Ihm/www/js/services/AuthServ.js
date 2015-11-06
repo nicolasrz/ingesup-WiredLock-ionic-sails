@@ -45,6 +45,7 @@ angular.module('authserv.service',[])
       $http.get("http://localhost:1337/"+model+"/find/",  { "id": id})
       .success(function(data) {
 
+
          console.log("success " + data);
          return defer.resolve(data);
       })
