@@ -14,7 +14,7 @@ module.exports = {
   },
   state:{
     type: 'boolean',
-    value: 'false'
+    defaultsTo: 'false'
   },
   owners: {
     collection: 'User',
