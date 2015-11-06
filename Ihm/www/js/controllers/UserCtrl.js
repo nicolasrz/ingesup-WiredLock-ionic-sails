@@ -51,7 +51,7 @@ angular.module('starter.controllers.user', ['ionic', 'authserv.service'])
          console.log(res)
          if (res) {
             $http.defaults.headers.common["authorization"] = 'Bearer ' + res.token;
-            $state.go("tab.home"); //redirection vers la bonne vue
+            $state.go("tab.door"); //redirection vers la bonne vue
          }
       };
       var error = function (err) {

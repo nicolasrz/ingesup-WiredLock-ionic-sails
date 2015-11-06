@@ -78,11 +78,11 @@ angular.module('starter', ['ionic', 'starter.controllers.dashboard', 'starter.co
 		}
 	})
 
-	.state('tab.home', {
-		url: '/home/',
+	.state('tab.door', {
+		url: '/door',
 		views: {
-			'home': {
-				templateUrl: 'templates/home/home.html',
+			'door': {
+				templateUrl: 'templates/home/door.html',
 				controller: 'HomeCtrl',
 		
 			}
