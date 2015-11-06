@@ -1,13 +1,33 @@
-<div ng-controller='UserCtrl'>
-	<!-- <ion-nav-view name="connection"></ion-nav-view> -->
-	  <ion-view title="Home">">
-	<!-- <ion-view view-title="Wired Lock"> -->
+<div ng-controller='HomeCtrl'>
+	<ion-view view-title="Home">
 	 	<ion-content class="padding">
 		 	<div class="list card">
-		 		<div class="item item-divider">THIS IS HOME</div>
-		 		
-		 	</div>
-	 	</ion-content>
-</ion-view>
-</div>
+		 		<div class="item item-divider">TEST</div>
 
+		 		<button ng-click=doorInformation()>Click me!</button>
+
+
+		 	</div>
+		 	<ul class="list">
+				<div ng-repeat="door in doors" ng-checked="door.state">
+  					<li class="item item-toggle">
+     					{{door.name}}
+     					<label class="toggle toggle-assertive">
+       						<input type="checkbox">
+       							<div class="track">
+         							<div class="handle"></div>
+       							</div>
+     					</label>
+					</li>
+				</div>
+			</ul>
+
+
+           
+          
+
+     
+		 
+	 	</ion-content>
+	</ion-view>
+</div>

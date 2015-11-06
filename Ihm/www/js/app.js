@@ -68,6 +68,16 @@ angular.module('starter', ['ionic', 'starter.controllers.dashboard', 'starter.co
 			}
 		}
 	})
+	.state('tab.dashboard', {
+		url: '/dashboard/listDashboard',
+		views: {
+			'dashboard': {
+				templateUrl: 'templates/dashboard/listDashboard.html',
+				controller: 'UserCtrl'
+			}
+		}
+	})
+
 	.state('tab.home', {
 		url: '/home/',
 		views: {
@@ -78,10 +88,7 @@ angular.module('starter', ['ionic', 'starter.controllers.dashboard', 'starter.co
 		}
 	})
 
-		.state('tab.dashboard', {
-			url: '/dashboard',
-		templateUrl: 'templates/dashboard/listDashboard.html'
-	})
+
 
 
 

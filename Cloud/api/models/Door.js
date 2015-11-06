@@ -15,6 +15,10 @@ name:{
   owners: {
     collection: 'User',
     via: 'doors'
+  },
+  state: {
+  	type:'boolean',
+  	value:'false',
   }
   }
 };
