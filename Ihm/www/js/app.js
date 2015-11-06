@@ -41,9 +41,10 @@ angular.module('starter', ['ionic', 'starter.controllers.dashboard', 'starter.co
 
 
 	// Each tab has its own nav history stack:
-
-	
-	
+		.state('new', {
+			url: '/user',
+			templateUrl: 'templates/user/inscription.html'
+	})	
 
 
 		.state('tab.connection', {
@@ -56,36 +57,33 @@ angular.module('starter', ['ionic', 'starter.controllers.dashboard', 'starter.co
 		}
 	})
 
-		.state('tab.chat-detail', {
-		url: '/chats/:chatId',
+
+
+		.state('tab.account', {
+		url: '/user/account',
 		views: {
-			'tab-chats': {
-				templateUrl: 'templates/menu/chat-detail.html',
-				controller: 'ChatDetailCtrl'
+			'account': {
+				templateUrl: 'templates/user/account.html',
+				controller: 'UserCtrl'
+			}
+		}
+	})
+	.state('tab.home', {
+		url: '/home/',
+		views: {
+			'home': {
+				templateUrl: 'templates/home/home.html',
+				controller: 'UserCtrl'
 			}
 		}
 	})
 
-		.state('tab.compte', {
-		url: '/compte',
-		views: {
-			'tab-account': {
-				templateUrl: 'templates/user/compte.html',
-				controller: 'AccountCtrl'
-			}
-		}
-	})
-
-
-		.state('dashboard', {
+		.state('tab.dashboard', {
 			url: '/dashboard',
 		templateUrl: 'templates/dashboard/listDashboard.html'
 	})
 
-		.state('new', {
-			url: '/user',
-			templateUrl: 'templates/user/inscription.html'
-	})
+
 
 
 

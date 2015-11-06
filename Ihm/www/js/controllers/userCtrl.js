@@ -14,8 +14,8 @@ angular.module('starter.controllers.user', ['ionic', 'authserv.service'])
 		var success = function(res){
 				console.log(res);
 				if (res) {
-					//console.log("Coucou bisou")
-					$state.go( "dashboard" ); //redirection vers la bonne vue
+					console.log('inscription ok -> redirection vers tab.connection');
+					$state.go( "tab.connection" ); //redirection vers la bonne vue
 				}
 		};
 		var error = function(err){
@@ -49,9 +49,8 @@ angular.module('starter.controllers.user', ['ionic', 'authserv.service'])
 		var success = function(res) {
 			console.log(res)
 			if (res) {
-				console.log('coucou');
 				$http.defaults.headers.common["authorization"] = 'Bearer ' + res.token;
-				$state.go("dashboard"); //redirection vers la bonne vue
+				$state.go("tab.dashboard"); //redirection vers la bonne vue
 			}
 		};
 		var error = function (err) {
