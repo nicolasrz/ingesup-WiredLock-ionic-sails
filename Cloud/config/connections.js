@@ -42,10 +42,10 @@ module.exports.connections = {
   ***************************************************************************/
   myDB: {
     adapter: 'sails-mysql',
-    host: 'localhost',
-    user: 'sailslock',
-    password: 'sailslock',
-    database: 'sailslock'
+    host: '91.121.144.145',
+    user: 'wiredLock',
+    password: 'wiredPwd',
+    database: 'wiredLock'
   },
 
   /***************************************************************************

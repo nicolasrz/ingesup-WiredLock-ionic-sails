@@ -1,5 +1,5 @@
 angular.module('starter.controllers.user', ['ionic', 'authserv.service'])
-	.controller('userCtrl', ['$scope', '$state', 'AuthServ', '$http', function($scope,$state, AuthServ, $http) {
+	.controller('UserCtrl', ['$scope', '$state', 'AuthServ', '$http', function($scope,$state, AuthServ, $http) {
 
 	$scope.insc = {};
 	$scope.infor = {};
