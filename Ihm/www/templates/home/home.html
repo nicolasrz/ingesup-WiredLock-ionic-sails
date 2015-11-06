@@ -4,16 +4,14 @@
 		 	<div class="list card">
 		 		<div class="item item-divider">TEST</div>
 
-		 		<button ng-click=doorInformation()>Click me!</button>
-
-
+		 
 		 	</div>
 		 	<ul class="list">
-				<div ng-repeat="door in doors" ng-checked="door.state">
+				<div ng-repeat="door in doors" >
   					<li class="item item-toggle">
-     					{{door.name}}
+     					{{door.name}} 
      					<label class="toggle toggle-assertive">
-       						<input type="checkbox">
+       						<input type="checkbox" ng-checked="door.state">
        							<div class="track">
          							<div class="handle"></div>
        							</div>

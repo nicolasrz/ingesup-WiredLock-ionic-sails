@@ -83,7 +83,8 @@ angular.module('starter', ['ionic', 'starter.controllers.dashboard', 'starter.co
 		views: {
 			'home': {
 				templateUrl: 'templates/home/home.html',
-				controller: 'UserCtrl'
+				controller: 'HomeCtrl',
+		
 			}
 		}
 	})

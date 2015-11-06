@@ -23,4 +23,6 @@ $scope.doors =[];
       AuthServ.getInformation(3,"door").then(success,error);
    };
 
+   
+$scope.doorInformation();
 	}]);
