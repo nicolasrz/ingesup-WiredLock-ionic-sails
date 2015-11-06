@@ -35,7 +35,7 @@ module.exports = {
   		dominant: true
   	},
   	doors:{
-  		collection: 'Doors',
+  		collection: 'Door',
   		via: 'owners',
   		dominant: true
   	},
