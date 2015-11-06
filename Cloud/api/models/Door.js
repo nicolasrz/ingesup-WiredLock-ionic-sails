@@ -19,7 +19,7 @@ module.exports = {
   owners: {
     collection: 'User',
     via: 'doors'
-  }
+  },
   }
 };
 

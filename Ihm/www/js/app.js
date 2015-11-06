@@ -67,19 +67,25 @@ angular.module('starter', ['ionic', 'starter.controllers.doors','starter.control
 			}
 		}
 	})
-	.state('tab.home', {
-		url: '/home/',
+	.state('tab.dashboard', {
+		url: '/dashboard/listDashboard',
 		views: {
-			'home': {
-				templateUrl: 'templates/home/home.html',
+			'dashboard': {
+				templateUrl: 'templates/dashboard/listDashboard.html',
 				controller: 'UserCtrl'
 			}
 		}
 	})
 
-		.state('tab.dashboard', {
-			url: '/dashboard',
-		templateUrl: '/templates/dashboard/listDashboard.html'
+	.state('tab.door', {
+		url: '/door',
+		views: {
+			'door': {
+				templateUrl: 'templates/home/door.html',
+				controller: 'HomeCtrl',
+		
+			}
+		}
 	})
 
         .state('tab.doors', {
@@ -93,6 +99,8 @@ angular.module('starter', ['ionic', 'starter.controllers.doors','starter.control
                 }
             }
         });
+
+
 
 
 
