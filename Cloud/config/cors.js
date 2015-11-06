@@ -69,8 +69,8 @@ module.exports.cors = {
   /***************************************************************************
   *                                                                          *
   * Which headers should be allowed for CORS requests? This is only used in  *
-  * response to preflight requests.                                          *
-  *                                                                          *
+   * response to preflight requests.                                          *
+   *                                                                          *
   ***************************************************************************/
 
    headers: 'content-type'
