@@ -25,6 +25,7 @@ module.exports = {
                     if(err) return res.json(403, {err:'forbidden'});
                     return res.json(
                         {
+                            id: user.id,
                             user: user,
                             token:token
                         }

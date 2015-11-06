@@ -80,7 +80,7 @@ angular.module('starter', ['ionic', 'starter.controllers.dashboard', 'starter.co
 
 		.state('tab.dashboard', {
 			url: '/dashboard',
-		templateUrl: 'templates/dashboard/listDashboard.html'
+		templateUrl: '/templates/dashboard/listDashboard.html'
 	})
 
 

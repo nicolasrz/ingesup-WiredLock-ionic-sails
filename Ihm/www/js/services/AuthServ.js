@@ -42,7 +42,7 @@ angular.module('authserv.service',[])
 	this.getInformation = function(id){
 
 		var defer = $q.defer();
-		$http.get("http://localhost:1337/user/find/",  { "name": name, "email": email, "password": password })
+		$http.get("http://localhost:1337/user/find/",  { "id": id})
 		.success(function(data) {
 
 			console.log("success " + data);
