@@ -1,10 +1,8 @@
 angular.module('starter.controllers.doors', [])
 
 	.controller('DoorsCtrl', function($scope, Doors, $ionicListDelegate) {
-            console.log("putainde mede");
         var doorsList = Doors.query(function() {
             $scope.doorsList = doorsList;
-            console.log("door list got");
         });
 
         $scope.data = {

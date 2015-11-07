@@ -1,0 +1,30 @@
+
+<ion-view view-title="Location">
+  <ion-content class="padding">
+
+    <h2>Ajouter une location</h2>
+        <form ng-submit="createLocation(location)">
+            <div class="list">
+                <label class="item item-input">
+                    <input type="text" placeholder="name" ng-model="locat.name">
+                </label>
+            </div>
+            <div class="padding">
+                <button type="submit" class="button button-block button-positive">{{data.buttonText}}</button>
+            </div>
+        </form>
+       
+        <ul class="list">
+                <div ng-repeat="locat in locationsList" >
+                    <li class="item item-toggle">
+                        {{locat.name}}  <p> --- </p> {{locat.createdAt}} <p> --- </p> {{locat.user}}
+                        
+                    </li>
+                </div>
+            </ul>
+
+
+
+  </ion-content>
+</ion-view>
+</div>

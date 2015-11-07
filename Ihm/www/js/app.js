@@ -5,7 +5,17 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers.doors','starter.controllers.dashboard', 'starter.controllers.user', 'starter.services','starter.controllers.home', 'authserv.service', 'doors.service','ngResource'])
+angular.module('starter', ['ionic', 'starter.controllers.doors',
+	'starter.controllers.dashboard',
+	 'starter.controllers.user',
+	  'starter.services',
+	  'starter.controllers.home',
+	    'starter.controllers.locations',
+	   'authserv.service',
+	    'doors.service',
+	    'ngResource',
+	    'locations.service'
+	    ])
 
 	.run(function($ionicPlatform) {
 	$ionicPlatform.ready(function() {
@@ -77,12 +87,22 @@ angular.module('starter', ['ionic', 'starter.controllers.doors','starter.control
 		}
 	})
 
-	.state('tab.door', {
-		url: '/door',
+	.state('tab.home', {
+		url: '/home',
 		views: {
-			'door': {
-				templateUrl: 'templates/home/door.html',
+			'home': {
+				templateUrl: 'templates/home/home.html',
 				controller: 'HomeCtrl',
+		
+			}
+		}
+	})
+		.state('tab.locations', {
+		url: '/locations',
+		views: {
+			'locations': {
+				templateUrl: 'templates/location/location.html',
+				controller: 'LocationsCtrl',
 		
 			}
 		}

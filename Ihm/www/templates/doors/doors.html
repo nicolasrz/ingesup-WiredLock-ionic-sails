@@ -2,22 +2,7 @@
 <ion-view view-title="Portes">
   <ion-content class="padding">
 
-    <ion-list>
-        <ion-item ng-repeat="door in doorsList">
-            {{door.name}}
-            {{door.owner}}
-            <!--<ion-option-button ng-click="updateUser(user)">
-                update
-            </ion-option-button>
-            <ion-option-button ng-click="delete(user)">
-                delete
-            </ion-option-button>
-            -->
-        </ion-item>
-    </ion-list>
-
-
-    <H2>Ajouter une porte</H2>
+    <h2>Ajouter une porte</h2>
         <form ng-submit="createDoor(door)">
             <div class="list">
                 <label class="item item-input">
@@ -28,6 +13,21 @@
                 <button type="submit" class="button button-block button-positive">{{data.buttonText}}</button>
             </div>
         </form>
+        <ul class="list">
+                <div ng-repeat="door in doorsList" >
+                    <li class="item item-toggle">
+                        {{door.name}} 
+                        <label class="toggle toggle-assertive">
+                            <input type="checkbox" ng-checked="door.state">
+                                <div class="track">
+                                    <div class="handle"></div>
+                                </div>
+                        </label>
+                    </li>
+                </div>
+            </ul>
+
+
 
   </ion-content>
 </ion-view>
