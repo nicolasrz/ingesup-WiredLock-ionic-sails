@@ -34,7 +34,6 @@ angular.module('starter.controllers.doors', [])
         $scope.changeState = function(door)
         {
             $scope.door = new Doors();
-            //$scope.door.$update({id:door.id, state:door.state}, function()
             $scope.door.$update(door, function()
             {
                 console.log("Door : "+door.id+" updated !");
