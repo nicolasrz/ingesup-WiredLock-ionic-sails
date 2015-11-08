@@ -1,34 +1,21 @@
 <div ng-controller='DoorsCtrl'>
-<ion-view view-title="Portes">
-  <ion-content class="padding">
+    <ion-view view-title="Portes">
+        <ion-content class="padding">
 
-    <h2>Ajouter une porte</h2>
-        <form ng-submit="createDoor(door)">
-            <div class="list">
-                <label class="item item-input">
-                    <input type="text" placeholder="name" ng-model="door.name">
-                </label>
-            </div>
-            <div class="padding">
-                <button type="submit" class="button button-block button-positive">{{data.buttonText}}</button>
-            </div>
-        </form>
-        <ul class="list">
-                <div ng-repeat="door in doorsList" >
-                    <li class="item item-toggle">
-                        {{door.name}} 
-                        <label class="toggle toggle-assertive">
-                            <input type="checkbox" ng-checked="door.state">
-                                <div class="track">
-                                    <div class="handle"></div>
-                                </div>
-                        </label>
-                    </li>
+            <h2>Ajouter une porte</h2>
+            <form ng-submit="createDoor(_door)">
+                <div class="list">
+                    <label class="item item-input">
+                        <input type="text" placeholder="name" ng-model="_door.name">
+                    </label>
                 </div>
-            </ul>
-
-
-
-  </ion-content>
-</ion-view>
+                <div class="padding">
+                    <button type="submit" class="button button-block button-positive">{{data.buttonText}}</button>
+                </div>
+            </form>
+            <ion-toggle toggle-class="toggle-assertive" ng-repeat="door in doorsList" ng-model="door.state" ng-checked="door.state" ng-change="changeState(door)">
+                {{ door.name }}
+            </ion-toggle>
+        </ion-content>
+    </ion-view>
 </div>

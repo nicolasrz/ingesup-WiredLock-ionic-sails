@@ -87,7 +87,7 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 		}
 	})
 
-	.state('tab.home', {
+/*	.state('tab.home', {
 		url: '/home',
 		views: {
 			'home': {
@@ -97,7 +97,7 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 			}
 		}
 	})
-		.state('tab.locations', {
+*/		.state('tab.locations', {
 		url: '/locations',
 		views: {
 			'locations': {
