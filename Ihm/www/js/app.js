@@ -7,15 +7,16 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers.doors',
 	'starter.controllers.dashboard',
-	 'starter.controllers.user',
-	  'starter.services',
-	  'starter.controllers.home',
-	    'starter.controllers.locations',
-	   'authserv.service',
-	    'doors.service',
-	    'ngResource',
-	    'locations.service'
-	    ])
+	'starter.controllers.connect',
+	'starter.controllers.user',
+	'starter.services',
+	'starter.controllers.home',
+	'starter.controllers.locations',
+	'authserv.service',
+	'doors.service',
+	'ngResource',
+	'locations.service'
+])
 
 	.run(function($ionicPlatform) {
 	$ionicPlatform.ready(function() {
@@ -42,7 +43,7 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 	$stateProvider
 
 	// setup an abstract state for the tabs directive
-		.state('tab', {
+	.state('tab', {
 		url: '/tab',
 		abstract: true,
 		templateUrl: 'templates/menu/tabs.html'
@@ -50,25 +51,25 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 
 
 	// Each tab has its own nav history stack:
-		.state('new', {
-			url: '/user',
-			templateUrl: 'templates/user/inscription.html'
+	.state('new', {
+		url: '/user',
+		templateUrl: 'templates/user/inscription.html'
 	})	
 
 
-		.state('tab.connection', {
+	.state('tab.connection', {
 		url: '/user/connection',
 		views: {
 			'connection': {
 				templateUrl: 'templates/user/connection.html',
-				controller: 'UserCtrl'
+				controller: 'ConnectCtrl'
 			}
 		}
 	})
 
 
 
-		.state('tab.account', {
+	.state('tab.account', {
 		url: '/user/account',
 		views: {
 			'account': {
@@ -78,7 +79,7 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 		}
 	})
 	.state('tab.dashboard', {
-		url: '/dashboard/listDashboard',
+		url: '/dashboard',
 		views: {
 			'dashboard': {
 				templateUrl: 'templates/dashboard/listDashboard.html',
@@ -87,38 +88,36 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 		}
 	})
 
-/*	.state('tab.home', {
+	.state('tab.home', {
 		url: '/home',
 		views: {
 			'home': {
 				templateUrl: 'templates/home/home.html',
-				controller: 'HomeCtrl',
-		
+				controller: 'HomeCtrl'
 			}
 		}
 	})
-*/		.state('tab.locations', {
+
+	.state('tab.locations', {
 		url: '/locations',
 		views: {
 			'locations': {
 				templateUrl: 'templates/location/location.html',
 				controller: 'LocationsCtrl',
-		
 			}
 		}
 	})
 
-        .state('tab.doors', {
-            url: '/doors',
-            views : 
-            {
-                'doors': 
-                {
-                    templateUrl: '/templates/doors/doors.html',
-                    controller: 'DoorsCtrl'
-                }
-            }
-        });
+	.state('tab.doors', {
+		url: '/doors',
+		views :
+		{
+			'doors': {
+				templateUrl: '/templates/doors/doors.html',
+				controller: 'DoorsCtrl'
+			}
+		}
+	});
 
 
 

@@ -1,7 +1,8 @@
 angular.module('authserv.service',[])
 
 .service('AuthServ',function($http, $q){
-   var connection;
+
+    this.user;
 
    this.getConnexion = function(name,password){
       
@@ -10,6 +11,7 @@ angular.module('authserv.service',[])
       .success(function(data) {
            
          console.log("success " + data);
+          this.user = data;
          return defer.resolve(data);
        })
        .error(function(data) {

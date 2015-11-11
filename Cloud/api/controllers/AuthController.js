@@ -26,7 +26,11 @@ module.exports = {
                     return res.json(
                         {
                             id: user.id,
-                            user: user,
+                            name: user.name,
+                            email: user.email,
+                            /*doors: {
+                                type: collection
+                            },*/
                             token:token
                         }
                     )
