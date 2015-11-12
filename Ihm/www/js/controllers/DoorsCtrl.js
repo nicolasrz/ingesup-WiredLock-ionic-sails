@@ -1,6 +1,6 @@
 angular.module('starter.controllers.doors', [])
 
-	.controller('DoorsCtrl', function($scope, Doors, $ionicListDelegate) {
+	.controller('DoorsCtrl', function($scope, Doors, $ionicListDelegate, $ionicPopup) {
         var doorsList = Doors.query(function() {
             $scope.doorsList = doorsList;
         });
@@ -12,9 +12,11 @@ angular.module('starter.controllers.doors', [])
 
         $scope.createDoor = function(door)
         {
+            console.log("djeizodjeo");
+            console.log(door.name);
             if(door.id)
             {
-                $scope._door.$update(function()
+                $scope._door.$update(door, function()
                 {
                     console.log("Door exist, update");
                     $scope._door = new Doors();
@@ -36,8 +38,31 @@ angular.module('starter.controllers.doors', [])
             $scope.door = new Doors();
             $scope.door.$update(door, function()
             {
-                console.log("Door : "+door.id+" updated !");
                 $scope.door = new Doors();
             });
+        }
+
+        $scope.upDoor = function(door)
+        {
+            $scope.__door = door;
+            var upPopup = $ionicPopup.show(
+            {
+                templateUrl: '/templates/doors/update.html',
+                title: 'Update door :',
+                subTitle: '',
+                scope: $scope,
+                buttons: 
+                [
+                    { text: 'Cancel' },
+                    {
+                        text: '<b>Save</b>',
+                        type: 'button-positive',
+                        onTap: function(e) 
+                        {
+                            $scope.createDoor($scope.__door);
+                        }
+                    },
+                 ] 
+            })
         }
 });
