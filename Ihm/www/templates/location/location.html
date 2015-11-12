@@ -1,27 +1,17 @@
 <ion-view view-title="Location">
-  <ion-content class="padding">
+  <ion-content class="padding" overflow-scroll = "true">
 
-    <h3>Ajouter une location</h3>
-      <ion-nav-buttons side="right">
-          <button class="button icon-left ion-log-out button-stable" ng-click="logout()">Logout</button>
-      </ion-nav-buttons>
-        <form ng-submit="createLocation(location)">
-            <div class="list">
-                <label class="item item-input">
-                    <input type="text" placeholder="name" ng-model="locat.name">
-                </label>
-            </div>
-            <div class="padding">
-                <button type="submit" class="button button-block button-positive">{{data.buttonText}}</button>
-            </div>
-        </form>
-       
-        <ul class="list">
-            <div ng-repeat="locat in locationsList" >
-                <li class="item item-toggle">
-                    {{locat.name}}  <p> --- </p> {{locat.createdAt}} <p> --- </p> {{locat.user}}
-                </li>
-            </div>
-        </ul>
+    <ion-list>
+        <ion-item ng-repeat="locat in locationsList" ng-click='showDoors()'>
+            {{locat.name}} <p> --</p> {{locat.id}}
+        </ion-item>
+    </ion-list>
+
+
+    <button class="button button-block button-calm" ng-click="saveLocationPopUp()">
+  Add
+</button>
+
   </ion-content>
 </ion-view>
+

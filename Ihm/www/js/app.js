@@ -123,12 +123,13 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 		},
 			needAuth : true
 	})
+		
 
 	.state('tab.doors', {
 		url: '/doors',
 		views :
 		{
-			'doors': {
+			'locations': {
 				templateUrl: '/templates/doors/doors.html',
 				controller: 'DoorsCtrl'
 			}

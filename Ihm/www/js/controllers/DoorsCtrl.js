@@ -4,6 +4,7 @@ angular.module('starter.controllers.doors', [])
         var doorsList = Doors.query(function() {
             $scope.doorsList = doorsList;
         });
+        console.log('ress');
 
         $scope.data = {
             buttonText: "Ajouter une porte"
