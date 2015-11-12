@@ -9,14 +9,13 @@ angular.module('starter.controllers.connect', ['ionic', 'authserv.service'])
             var name = $scope.dash.name;
             var password = $scope.dash.password;
             var success = function(res) {
-                console.log(res)
+                console.log('Controleur ' + res)
                 if (res) {
                     window.localStorage['id'] = res.id;
                     window.localStorage['name'] = res.name;
                     window.localStorage['email'] = res.email;
 
                     $http.defaults.headers.common["authorization"] = res.token;
-                    console.log(AuthServ.user);
                     $scope.user = AuthServ.user;
                     $state.go("tab.locations"); //redirection vers la bonne vue
                 }

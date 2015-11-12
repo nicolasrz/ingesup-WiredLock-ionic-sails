@@ -22,17 +22,22 @@ angular.module('authserv.service', [])
     .service('AuthServ', function ($http, $q) {
 
         this.user;
+        this.logged = false;
+        console.log('Authser logged : ' + this.logged)
 
         this.getConnexion = function (name, password) {
 
             var defer = $q.defer(); // permet de récupérer la réponse déférée
             $http.post("http://localhost:1337/api/login/", {"name": name, "password": password})
-                .success(function (data) {
+                .success((function(srv){                              // Deuxième couche on passe le service en paramètre
+                    return function (data) {                          // Troisième couche, il est alors possible que les couche communique entre elles
 
-                    console.log("success " + data);
-                    this.user = data;
-                    return defer.resolve(data);
-                })
+                        console.log("success " + data);
+                        srv.user = data;                              // Pour récupérer les variables du service, il faut le passer en paramètre sur plusieurs couches.
+                        srv.logged = true;                            // sinon, pour lui, le this est celui de la requête post envoyée à l'API
+                        return defer.resolve(data);
+                    }
+                })(this))                                             // Première couche, on dit que le service passe en paramètre
                 .error(function (data) {
 
                     console.log(data);
