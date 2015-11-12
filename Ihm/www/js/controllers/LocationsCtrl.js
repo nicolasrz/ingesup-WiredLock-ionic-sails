@@ -27,7 +27,7 @@ angular.module('starter.controllers.locations', [])
                 $scope._locat.user = 2;  
                 $scope._locat.$save(function()
                 {
-                    console.log("new Locations id: "+locat.id);
+                    //console.log("new Locations id: "+locat.id);
                     $scope.locationsList.push(locat)
                     $scope._locat = new Locations();
                    
@@ -62,11 +62,6 @@ angular.module('starter.controllers.locations', [])
        },
      ]
    });
-   myPopup.then(function(res) {
-    // $scope.locationsList
-   });
-   $timeout(function() {
-      myPopup.close(); //close the popup after 3 seconds for some reason
-   }, 3000);
+
   };
 });
