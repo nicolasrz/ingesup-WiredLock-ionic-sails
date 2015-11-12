@@ -107,12 +107,13 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 			}
 		}
 	})
+		
 
 	.state('tab.doors', {
 		url: '/doors',
 		views :
 		{
-			'doors': {
+			'locations': {
 				templateUrl: '/templates/doors/doors.html',
 				controller: 'DoorsCtrl'
 			}
