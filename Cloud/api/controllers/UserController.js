@@ -26,7 +26,7 @@ module.exports = {
     },
 
     // a FIND action
-    find: function(req, res, next) {
+    find: function(req, res) {
 
         var id = req.param('id');
 
@@ -37,14 +37,15 @@ module.exports = {
         }
 
         if (id) {
-
+            console.log(id);
             User.findOne(id, function(err, user) {
+
 
                 if (user === undefined) return res.notFound();
 
-                if (err) return next(err);
-
-                res.json(user);
+                if (err) return res.json(err);
+                sails.log(user)
+                return res.jsonx(user);
 
             });
 
@@ -69,7 +70,7 @@ module.exports = {
 
                 if (err) return next(err);
 
-                res.json(user);
+                return res.json(user);
 
             });
 

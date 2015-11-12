@@ -18,7 +18,7 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 	'locations.service'
 ])
 
-	.run(function($ionicPlatform) {
+	.run(function($ionicPlatform, $rootScope, $state, AuthServ) {
 	$ionicPlatform.ready(function() {
 		// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
 		// for form inputs)
@@ -31,7 +31,23 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 			// org.apache.cordova.statusbar required
 			StatusBar.styleLightContent();
 		}
+
 	});
+		$rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams){
+
+			console.log('App.js ' + AuthServ.logged);
+			console.log(AuthServ.user);
+
+			if (toState.needAuth == true && AuthServ.logged == false){
+				$state.go('connection')
+				e.preventDefault()
+			} else {
+				if (toState.name == 'connection' && AuthServ.logged == true){
+					$state.go('tab.home')
+					e.preventDefault()
+				}
+			}
+		})
 })
 
 	.config(function($stateProvider, $urlRouterProvider) {
@@ -57,35 +73,33 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 	})	
 
 
-	.state('tab.connection', {
-		url: '/user/connection',
-		views: {
-			'connection': {
+	.state('connection', {
+		url: '/connection',
+
 				templateUrl: 'templates/user/connection.html',
 				controller: 'ConnectCtrl'
-			}
-		}
+
 	})
 
-
-
 	.state('tab.account', {
-		url: '/user/account',
+		url: '/account',
 		views: {
 			'account': {
 				templateUrl: 'templates/user/account.html',
 				controller: 'UserCtrl'
 			}
-		}
+		},
+			needAuth : true
 	})
 	.state('tab.dashboard', {
 		url: '/dashboard',
 		views: {
-			'dashboard': {
+			'locations': {
 				templateUrl: 'templates/dashboard/listDashboard.html',
-				controller: 'UserCtrl'
+				controller: 'DashboardCtrl'
 			}
-		}
+		},
+			needAuth : true
 	})
 
 	.state('tab.home', {
@@ -95,7 +109,8 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 				templateUrl: 'templates/home/home.html',
 				controller: 'HomeCtrl'
 			}
-		}
+		},
+		needAuth : true
 	})
 
 	.state('tab.locations', {
@@ -103,27 +118,29 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 		views: {
 			'locations': {
 				templateUrl: 'templates/location/location.html',
-				controller: 'LocationsCtrl',
+				controller: 'LocationsCtrl'
 			}
-		}
+		},
+			needAuth : true
 	})
+		
 
 	.state('tab.doors', {
 		url: '/doors',
 		views :
 		{
-			'doors': {
+			'locations': {
 				templateUrl: '/templates/doors/doors.html',
 				controller: 'DoorsCtrl'
 			}
-		}
+		},
+			needAuth : true
 	});
 
-
-
-
-
 	// if none of the above states are matched, use this as the fallback
-	$urlRouterProvider.otherwise('/tab/user/connection');
+		$urlRouterProvider.otherwise(function ($injector, $location) {
+			var $state = $injector.get("$state");
+			$state.go("connection");
+		});
 
 });
