@@ -1,8 +1,24 @@
 angular.module('starter.controllers.user', ['ionic', 'authserv.service'])
-   .controller('UserCtrl', ['$scope', '$state', 'AuthServ', function($scope,$state, AuthServ) {
+   .controller('UserCtrl', ['$http', '$scope', '$state', 'AuthServ', 'Users', function($http, $scope, $state, AuthServ, Users) {
 
    $scope.insc = {};
    $scope.infor = {};
+
+   $scope.currentId = window.localStorage['id'];
+    $scope.currentUser = window.localStorage['name'];
+    $scope.currentEmail = window.localStorage['email'];
+
+
+       $scope.$on('$ionicView.enter', function(){
+          console.log('coucou');
+          Users.fetch({id:$scope.currentId},function(result){
+             console.log('It works')
+          },function(err){
+             console.log(err)
+          })
+       });
+
+   $scope.user = new Users();
 
    $scope.inscription = function(){
 
@@ -23,22 +39,4 @@ angular.module('starter.controllers.user', ['ionic', 'authserv.service'])
       // Le .then permet d'attendre la "promesse" de l'asynchrone de connexion
       AuthServ.setInscription(name,email,password).then(success,error);
    };
-
-   $scope.information = function(){
-
-      var id = $scope.infor.id;
-
-      var success = function(res){
-      console.log(res);
-      if (res) {
-         $state.go( "tab.account" ); //redirection vers la bonne vue
-      }
-      };
-      var error = function(err){
-         console.log(err);
-      };
-      // Le .then permet d'attendre la "promesse" de l'asynchrone de connexion
-      AuthServ.getInformation(id,"user").then(success,error);
-   };
-
 }]);

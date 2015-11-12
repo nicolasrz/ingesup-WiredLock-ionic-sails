@@ -1,7 +1,10 @@
 <ion-view view-title="Location">
   <ion-content class="padding">
 
-    <h2>Ajouter une location</h2>
+    <h3>Ajouter une location</h3>
+      <ion-nav-buttons side="right">
+          <button class="button icon-left ion-log-out button-stable" ng-click="logout()">Logout</button>
+      </ion-nav-buttons>
         <form ng-submit="createLocation(location)">
             <div class="list">
                 <label class="item item-input">

@@ -1,5 +1,5 @@
 angular.module('starter.controllers.connect', ['ionic', 'authserv.service'])
-    .controller('ConnectCtrl', ['$scope', '$state', 'AuthServ', '$http', function($scope,$state, AuthServ, $http) {
+    .controller('ConnectCtrl', ['$scope', '$state', 'AuthServ', '$http', function($scope, $state, AuthServ, $http) {
 
         $scope.dash = {};
         $scope.user = {};
@@ -11,7 +11,11 @@ angular.module('starter.controllers.connect', ['ionic', 'authserv.service'])
             var success = function(res) {
                 console.log(res)
                 if (res) {
-                    $http.defaults.headers.common["authorization"] = 'Bearer ' + res.token;
+                    window.localStorage['id'] = res.id;
+                    window.localStorage['name'] = res.name;
+                    window.localStorage['email'] = res.email;
+
+                    $http.defaults.headers.common["authorization"] = res.token;
                     console.log(AuthServ.user);
                     $scope.user = AuthServ.user;
                     $state.go("tab.locations"); //redirection vers la bonne vue

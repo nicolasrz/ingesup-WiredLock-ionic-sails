@@ -7,7 +7,7 @@ angular.module('starter.controllers.locations', [])
         });
 
         $scope.data = {
-            buttonText: "Ajouter une locationn"
+            buttonText: "Ajouter une location"
         }
         
         $scope.locat = new Locations();
