@@ -45,7 +45,7 @@ module.exports = {
     delete obj.refreshToken;
     delete obj.createAt;
     delete obj.updateAt;
-    delete obj.token;
+        return obj
     }
   },
 

@@ -1,11 +1,8 @@
 <ion-view title="Account">
-	<div ng-controller='UserCtrl'>
-		<ion-content class="padding">
-			<div class="list card">
-				<div class="item item-divider">Nom : {{user.name}}</div>
-				<div class="item item-divider">Email : {{}}</div>
-				<div class="item item-divider">Porte : {{}}</div>
-			</div>
-		</ion-content>
-	</div>
+	<ion-content class="padding">
+		<div class="list card">
+			<div class="item item-divider">Nom : {{currentUser}}</div>
+			<div class="item item-divider">Email : {{currentEmail}}</div>
+		</div>
+	</ion-content>
 </ion-view>

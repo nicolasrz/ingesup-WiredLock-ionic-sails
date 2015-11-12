@@ -47,6 +47,13 @@ module.exports.connections = {
     password: 'wiredPwd',
     database: 'wiredLock'
   },
+  myDLocal: {
+    adapter: 'sails-mysql',
+    host: 'localhost',
+    user: 'sailslock',
+    password: 'sailslock',
+    database: 'sailslock'
+  },
 
   /***************************************************************************
   *                                                                          *

@@ -40,16 +40,16 @@ module.exports.routes = {
   'get /api/refresh': 'AuthController.refresh',
 
   //Création des routes restraintes pour user
-  'get /user/:id?': 'UserController.find',
+  'get /user/:id': 'UserController.find',
   'post /user': 'UserController.create',
-  'put /user/:id?': 'UserController.update',
-  'delete /user/:id?': 'UserController.destroy',
+  'put /user/:id': 'UserController.update',
+  'delete /user/:id': 'UserController.destroy',
 
   //Création des routes restraintes pour les cartes nfc
-  'get /nfc/:id?': 'NfcController.find',
+  'get /nfc/:id': 'NfcController.find',
   'post /nfc': 'NfcController.create',
-  'put /nfc/:id?': 'NfcController.update',
-  'delete /nfc/:id?': 'NfcController.destroy'
+  'put /nfc/:id': 'NfcController.update',
+  'delete /nfc/:id': 'NfcController.destroy'
 
 
   /***************************************************************************

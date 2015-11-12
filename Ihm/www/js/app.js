@@ -58,7 +58,7 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 
 
 	.state('tab.connection', {
-		url: '/user/connection',
+		url: '/connection',
 		views: {
 			'connection': {
 				templateUrl: 'templates/user/connection.html',
@@ -67,10 +67,8 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 		}
 	})
 
-
-
 	.state('tab.account', {
-		url: '/user/account',
+		url: '/account',
 		views: {
 			'account': {
 				templateUrl: 'templates/user/account.html',
@@ -81,9 +79,9 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 	.state('tab.dashboard', {
 		url: '/dashboard',
 		views: {
-			'dashboard': {
+			'locations': {
 				templateUrl: 'templates/dashboard/listDashboard.html',
-				controller: 'UserCtrl'
+				controller: 'DashboardCtrl'
 			}
 		}
 	})
@@ -103,7 +101,7 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 		views: {
 			'locations': {
 				templateUrl: 'templates/location/location.html',
-				controller: 'LocationsCtrl',
+				controller: 'LocationsCtrl'
 			}
 		}
 	})
@@ -120,11 +118,10 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 		}
 	});
 
-
-
-
-
 	// if none of the above states are matched, use this as the fallback
-	$urlRouterProvider.otherwise('/tab/user/connection');
+		$urlRouterProvider.otherwise(function ($injector, $location) {
+			var $state = $injector.get("$state");
+			$state.go("tab.home");
+		});
 
 });
