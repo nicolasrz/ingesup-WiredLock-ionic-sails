@@ -8,9 +8,6 @@ angular.module('starter.controllers.locations', [])
         });
 
 
-        
-        
-
         $scope.data = {
             buttonText: "Ajouter une location"
         }
@@ -32,7 +29,7 @@ angular.module('starter.controllers.locations', [])
                 $scope._locat.user = $scope.currentIdUser;
                 $scope._locat.$save(function()
                 {
-                    //console.log("new Locations id: "+locat.id);
+                    console.log("new Locations id: "+locat.name);
                     $scope.locationsList.push(locat)
                     $scope._locat = new Locations();
                    
@@ -106,7 +103,10 @@ angular.module('starter.controllers.locations', [])
        {
          text: '<b>Enregistrer</b>',
          type: 'button-positive',
-         onTap: $scope.createLocation,
+         onTap: function(e)
+         {
+            $scope.createLocation($scope._locat);
+         }
        },
      ]
    });
