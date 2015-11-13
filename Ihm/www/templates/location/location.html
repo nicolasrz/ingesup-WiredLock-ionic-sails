@@ -2,7 +2,7 @@
   <ion-content class="padding" overflow-scroll = "true">
 
     <ion-list>
-        <ion-item ng-repeat="locat in locationsList" ng-click='showDoors()'>
+        <ion-item ng-repeat="locat in locationsList" ng-click='showDoors(locat.id)'>
             {{locat.name}} <p> --</p> {{locat.id}}
         </ion-item>
     </ion-list>

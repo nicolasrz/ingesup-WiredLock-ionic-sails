@@ -36,9 +36,9 @@ angular.module('starter.controllers.locations', [])
         }
 
 
-        $scope.showDoors = function()
+        $scope.showDoors = function(m_locId)
         {
-            $state.go('tab.doors');
+            $state.go('tab.doors', {locId:m_locId});
         }
 
 

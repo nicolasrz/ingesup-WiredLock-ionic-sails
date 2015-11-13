@@ -1,10 +1,10 @@
 angular.module('starter.controllers.doors', [])
 
-	.controller('DoorsCtrl', function($scope, Doors, $ionicListDelegate, $ionicPopup) {
-        var doorsList = Doors.query(function() {
-            $scope.doorsList = doorsList;
+	.controller('DoorsCtrl', function($stateParams, $scope, Doors, Locations, $ionicListDelegate, $ionicPopup) {
+        var currLoc = Locations.get({id:$stateParams.locId}, function() {
+            $scope.doorsList = currLoc.doors;
         });
-        console.log('ress');
+        $scope.locId = $stateParams.locId;
 
         $scope.data = {
             buttonText: "Ajouter une porte"
@@ -13,8 +13,6 @@ angular.module('starter.controllers.doors', [])
 
         $scope.createDoor = function(door)
         {
-            console.log("djeizodjeo");
-            console.log(door.name);
             if(door.id)
             {
                 $scope._door.$update(door, function()
@@ -29,6 +27,12 @@ angular.module('starter.controllers.doors', [])
                 {
                     console.log("new door id: "+door.id);
                     $scope.doorsList.push(door);
+                    idlist = {};
+                    for(d in $scope.doorsList)
+                    {
+                        idlist.push({doors:d.id});
+                    }
+                    console.log(idlist);
                     $scope._door = new Doors();
                 });
             }
