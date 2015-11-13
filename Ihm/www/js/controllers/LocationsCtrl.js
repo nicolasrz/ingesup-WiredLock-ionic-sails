@@ -3,6 +3,7 @@ angular.module('starter.controllers.locations', [])
     .controller('LocationsCtrl', function($scope, Locations, $ionicListDelegate,$state,$ionicPopup) {
 
         $scope.currentIdUser = window.localStorage['id'];
+
         var locationsList = Locations.query({user:$scope.currentIdUser},function() {
             $scope.locationsList = locationsList;
         });
