@@ -1,10 +1,16 @@
 angular.module('starter.controllers.doors', [])
 
-	.controller('DoorsCtrl', function($scope, Doors, $ionicListDelegate, $ionicPopup) {
-        var doorsList = Doors.query(function() {
-            $scope.doorsList = doorsList;
+	.controller('DoorsCtrl', function($stateParams, $scope, Doors, Locations, $ionicListDelegate, $ionicPopup) {
+        var currLoc = Locations.get({id:$stateParams.locId}, function() {
+            if(currLoc.doors)
+            {
+                $scope.doorsList = currLoc.doors;
+                $scope.currLoc = currLoc;
+            }
+            else
+                $scope.doorsList = [];
         });
-        console.log('ress');
+        $scope.locId = $stateParams.locId;
 
         $scope.data = {
             buttonText: "Ajouter une porte"
@@ -13,8 +19,6 @@ angular.module('starter.controllers.doors', [])
 
         $scope.createDoor = function(door)
         {
-            console.log("djeizodjeo");
-            console.log(door.name);
             if(door.id)
             {
                 $scope._door.$update(door, function()
@@ -25,10 +29,13 @@ angular.module('starter.controllers.doors', [])
             }
             else
             {
+                
                 $scope._door.$save(function()
                 {
-                    console.log("new door id: "+door.id);
+                    //console.log("new door id: "+door.id);
                     $scope.doorsList.push(door);
+                    currLoc.doors = $scope.doorsList;
+                    currLoc.$update($scope.locId);
                     $scope._door = new Doors();
                 });
             }
@@ -40,6 +47,17 @@ angular.module('starter.controllers.doors', [])
             $scope.door.$update(door, function()
             {
                 $scope.door = new Doors();
+            });
+        }
+
+        $scope.delDoor = function(door)
+        {
+            mdoor = new Doors();
+            mdoor.$delete(door, function()
+            {
+                $scope.doorsList.splice($scope.doorsList.indexOf(door), 1);
+                currLoc.doors=doorsList;
+                currLoc.$update();
             });
         }
 
@@ -61,6 +79,14 @@ angular.module('starter.controllers.doors', [])
                         onTap: function(e) 
                         {
                             $scope.createDoor($scope.__door);
+                        }
+                    },
+                    {
+                        text: '<b>Delete !</b>',
+                        type: 'button-negative',
+                        onTap: function(e) 
+                        {
+                            $scope.delDoor($scope.__door);
                         }
                     },
                  ] 

@@ -47,7 +47,7 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 		})
 })
 
-	.config(function($stateProvider, $urlRouterProvider) {
+	.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
 	// Ionic uses AngularUI Router which uses the concept of states
 	// Learn more here: https://github.com/angular-ui/ui-router
@@ -123,7 +123,7 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 		
 
 	.state('tab.doors', {
-		url: '/doors',
+        url: '/doors/:locId',
 		views :
 		{
 			'locations': {
@@ -140,4 +140,4 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 			$state.go("connection");
 		});
 
-});
+}]);
