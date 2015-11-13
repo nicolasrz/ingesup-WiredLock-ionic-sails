@@ -6,6 +6,10 @@ angular.module('starter.controllers.locations', [])
             $scope.locationsList = locationsList;
         });
 
+
+        
+        $scope.currentIdUser = window.localStorage['id'];
+
         $scope.data = {
             buttonText: "Ajouter une location"
         }
@@ -24,7 +28,7 @@ angular.module('starter.controllers.locations', [])
             }
             else
             {
-                $scope._locat.user = 2;  
+                $scope._locat.user = $scope.currentIdUser;
                 $scope._locat.$save(function()
                 {
                     //console.log("new Locations id: "+locat.id);
@@ -39,6 +43,32 @@ angular.module('starter.controllers.locations', [])
         $scope.showDoors = function()
         {
             $state.go('tab.doors');
+        }
+
+
+        $scope.updateLocation = function(location)
+        {
+            
+            $scope.__location = location
+            console.log($scope.__location);
+            var upPopup = $ionicPopup.show(
+            {
+                templateUrl: '/templates/location/updateLocation.html',
+                title: 'Update location:',
+                scope: $scope,
+                buttons: 
+                [
+                    { text: 'Cancel' },
+                    {
+                        text: '<b>Save</b>',
+                        type: 'button-positive',
+                        onTap: function(e) 
+                        {
+                            $scope.createLocation($scope.__location);
+                        }
+                    },
+                 ] 
+            });
         }
 
 
