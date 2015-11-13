@@ -2,7 +2,13 @@ angular.module('starter.controllers.doors', [])
 
 	.controller('DoorsCtrl', function($stateParams, $scope, Doors, Locations, $ionicListDelegate, $ionicPopup) {
         var currLoc = Locations.get({id:$stateParams.locId}, function() {
-            $scope.doorsList = currLoc.doors;
+            if(currLoc.doors)
+            {
+                $scope.doorsList = currLoc.doors;
+                $scope.currLoc = currLoc;
+            }
+            else
+                $scope.doorsList = [];
         });
         $scope.locId = $stateParams.locId;
 
@@ -27,12 +33,8 @@ angular.module('starter.controllers.doors', [])
                 {
                     console.log("new door id: "+door.id);
                     $scope.doorsList.push(door);
-                    idlist = {};
-                    for(d in $scope.doorsList)
-                    {
-                        idlist.push({doors:d.id});
-                    }
-                    console.log(idlist);
+                    currLoc.doors = $scope.doorsList;
+                    currLoc.$update($scope.locId, idlist);
                     $scope._door = new Doors();
                 });
             }
