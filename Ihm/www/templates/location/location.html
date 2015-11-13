@@ -2,13 +2,13 @@
   <ion-content class="padding" overflow-scroll = "true">
 
     <ion-list>
-        <ion-item ng-repeat="locat in locationsList" ng-click='showDoors(locat.id)'>
+        <ion-item ng-repeat="locat in locationsList" ng-click='showDoors(locat.id)' on-hold="updateLocation(locat)">
             {{locat.name}} <p> --</p> {{locat.id}}
         </ion-item>
     </ion-list>
 
 
-    <button class="button button-block button-calm" ng-click="saveLocationPopUp()">
+    <button class="button button-block button-calm" ng-click="saveLocationPopUp()" >
   Add
 </button>
 

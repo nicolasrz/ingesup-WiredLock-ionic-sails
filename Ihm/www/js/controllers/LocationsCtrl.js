@@ -2,9 +2,14 @@ angular.module('starter.controllers.locations', [])
 
     .controller('LocationsCtrl', function($scope, Locations, $ionicListDelegate,$state,$ionicPopup) {
 
-        var locationsList = Locations.query({user:2},function() {
+        $scope.currentIdUser = window.localStorage['id'];
+        var locationsList = Locations.query({user:$scope.currentIdUser},function() {
             $scope.locationsList = locationsList;
         });
+
+
+        
+        
 
         $scope.data = {
             buttonText: "Ajouter une location"
@@ -24,7 +29,7 @@ angular.module('starter.controllers.locations', [])
             }
             else
             {
-                $scope._locat.user = 2;  
+                $scope._locat.user = $scope.currentIdUser;
                 $scope._locat.$save(function()
                 {
                     //console.log("new Locations id: "+locat.id);
@@ -35,10 +40,53 @@ angular.module('starter.controllers.locations', [])
             }
         }
 
+        $scope.deleteLocation = function(locat){
+            // suppresion de la location en base
+            $scope._locat.$delete(locat);
+            // suppression de la location du tableau.
+            $scope.locationsList.splice($scope.locationsList.indexOf(locat),1);
+            
+            
+        }
 
         $scope.showDoors = function(m_locId)
         {
             $state.go('tab.doors', {locId:m_locId});
+        }
+
+
+        $scope.updateLocation = function(location)
+        {
+            
+            $scope.__location = location
+            console.log($scope.__location);
+            var upPopup = $ionicPopup.show(
+            {
+                templateUrl: '/templates/location/updateLocation.html',
+                title: 'Update location:',
+                width : '500px',
+                scope: $scope,
+                buttons: 
+                [
+                    { text: 'Cancel' },
+                    {
+                        text: '<b>Save</b>',
+                        type: 'button-positive',
+                        onTap: function(e) 
+                        {
+                            $scope.createLocation($scope.__location);
+                        }
+                    },
+                    {
+                        text: '<b>Delete</b>',
+                        type:'button-assertive',
+                        onTap : function(e)
+                        {
+                            $scope.deleteLocation($scope.__location);
+                        }
+                    }
+                 ] 
+            });
         }
 
 
