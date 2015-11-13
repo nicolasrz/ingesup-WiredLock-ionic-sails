@@ -41,7 +41,7 @@ module.exports = {
   	},
     toJSON: function(){ // Fonction permettant d’enlever des éléments en clair
     var obj = this.toObject();
-    delete obj.password;
+    //delete obj.password;
     delete obj.refreshToken;
     delete obj.createAt;
     delete obj.updateAt;
@@ -51,7 +51,9 @@ module.exports = {
 
   
   beforeCreate: function (value,next){
-        bcrypt.genSalt(10, function(err,salt){
+      console.log('je passe dans le beforeCreate')
+
+      bcrypt.genSalt(10, function(err,salt){
             if(err) return next(err);
             bcrypt.hash(value.password, salt,function(err,hash){
                 if(err) return next(err);
@@ -69,6 +71,19 @@ module.exports = {
             }else{
                 cb(err)
             }
+        })
+    },
+
+  beforeUpdate: function (value,next){
+        console.log('je passe dans le beforeUpdate')
+        bcrypt.genSalt(10, function(err,salt){
+            if(err) return next(err);
+            bcrypt.hash(value.password, salt,function(err,hash){
+                if(err) return next(err);
+                value.password = hash;
+                value.refreshToken = JwtHandler.generate({email:value.email});
+                next();
+            })
         })
     }
 };

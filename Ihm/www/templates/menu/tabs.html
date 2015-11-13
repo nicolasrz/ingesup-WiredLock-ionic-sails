@@ -3,9 +3,11 @@ Create tabs with an icon and label, using the tabs-positive style.
 Each tab's child <ion-nav-view> directive will have its own
 navigation history that also transitions its views in and out.
 -->
-
-
+<div class="button icon-left ion-log-out button-stable">
+	<button  ng-click="logout()">Logout</button>
+</div>
 <ion-tabs class="tabs-icon-top tabs-color-active-positive">
+
 	<!-- Home Tab -->
 	<ion-tab title="Home" icon="ion-home" ui-sref="tab.home">
 		<ion-nav-view name="home"></ion-nav-view>

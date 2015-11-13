@@ -2,28 +2,32 @@ angular.module('authserv.service', [])
 
 
     .factory('Users', function ($resource) {
-        /*return $resource('http://localhost:1337/user/:id', {id: '@id'},
-         {
-         update: {
-         method: 'put'
-         }
-         'get':    {method:'GET'},
-         'save':   {method:'POST'},
-         'query':  {method:'GET', isArray:true},
-         'remove': {method:'DELETE'},
-         'delete': {method:'DELETE'}
-         })*/
         return $resource('http://localhost:1337/', null, {
-            fetch: {method: 'GET', url: 'http://localhost:1337/user/:id', params: {id: '@id'}}
+            fetch: {
+                method: 'GET',
+                url: 'http://localhost:1337/user/:id',
+                params: {id: '@id'}},
+            maj: {
+                method: 'PUT', url: 'http://localhost:1337/user/:id',
+                params: {id:'@id', name: '@name', email: '@email'},
+                transformResponse: function(data, headers) {
+
+                }},
+            suppr: {
+                method: 'DELETE',
+                url: 'http://localhost:1337/user/:id',
+                params: {id: '@id'},
+                transformResponse: function(data, headers) {
+
+                }
+            }
 
         })
-
     })
     .service('AuthServ', function ($http, $q) {
 
         this.user;
         this.logged = false;
-        console.log('Authser logged : ' + this.logged)
 
         this.getConnexion = function (name, password) {
 
@@ -44,7 +48,6 @@ angular.module('authserv.service', [])
                     return defer.reject(data);
                 })
             return defer.promise; // envoie d'une promesse d'envoi de réponse
-
         };
 
         this.setInscription = function (name, email, password) {
@@ -52,16 +55,18 @@ angular.module('authserv.service', [])
             var defer = $q.defer(); // permet de récupérer la réponse déférée
             $http.post("http://localhost:1337/user/create/", {"name": name, "email": email, "password": password})
                 .success(function (data) {
-
-                    console.log("success " + data);
                     return defer.resolve(data);
                 })
                 .error(function (data) {
-
                     console.log(data);
                     return defer.reject(data);
                 })
             return defer.promise; // envoie d'une promesse d'envoi de réponse
-
         };
+
+        this.logOut = function (){
+            $http.defaults.headers.common["authorization"] = '',
+            this.logged = false;
+            this.user = null;
+        }
     });

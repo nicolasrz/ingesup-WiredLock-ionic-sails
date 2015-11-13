@@ -35,9 +35,6 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 	});
 		$rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams){
 
-			console.log('App.js ' + AuthServ.logged);
-			console.log(AuthServ.user);
-
 			if (toState.needAuth == true && AuthServ.logged == false){
 				$state.go('connection')
 				e.preventDefault()
