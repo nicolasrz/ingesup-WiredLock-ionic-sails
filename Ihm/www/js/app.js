@@ -35,9 +35,6 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 	});
 		$rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams){
 
-			console.log('App.js ' + AuthServ.logged);
-			console.log(AuthServ.user);
-
 			if (toState.needAuth == true && AuthServ.logged == false){
 				$state.go('connection')
 				e.preventDefault()
@@ -62,7 +59,8 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 	.state('tab', {
 		url: '/tab',
 		abstract: true,
-		templateUrl: 'templates/menu/tabs.html'
+		templateUrl: 'templates/menu/tabs.html',
+		controller: 'UserCtrl'
 	})
 
 
@@ -80,7 +78,6 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 				controller: 'ConnectCtrl'
 
 	})
-
 	.state('tab.account', {
 		url: '/account',
 		views: {

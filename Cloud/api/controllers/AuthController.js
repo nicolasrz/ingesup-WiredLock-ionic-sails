@@ -21,20 +21,17 @@ module.exports = {
                 token = JwtHandler.generate({name:user.name,id: user.id});
                 user.token = token;
                 //console.log('je suis valide')
-                user.save(function(err){
-                    if(err) return res.json(403, {err:'forbidden'});
-                    return res.json(
-                        {
-                            id: user.id,
-                            name: user.name,
-                            email: user.email,
-                            /*doors: {
-                                type: collection
-                            },*/
-                            token:token
-                        }
-                    )
-                })
+                return res.json(
+                    {
+                        id: user.id,
+                        name: user.name,
+                        email: user.email,
+                        /*doors: {
+                            type: collection
+                        },*/
+                        token:token
+                    }
+                )
             })
         })
     },

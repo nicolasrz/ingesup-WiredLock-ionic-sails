@@ -9,7 +9,6 @@ angular.module('starter.controllers.connect', ['ionic', 'authserv.service'])
             var name = $scope.dash.name;
             var password = $scope.dash.password;
             var success = function(res) {
-                console.log('Controleur ' + res)
                 if (res) {
                     window.localStorage['id'] = res.id;
                     window.localStorage['name'] = res.name;
