@@ -59,7 +59,8 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 	.state('tab', {
 		url: '/tab',
 		abstract: true,
-		templateUrl: 'templates/menu/tabs.html'
+		templateUrl: 'templates/menu/tabs.html',
+		controller: 'UserCtrl'
 	})
 
 
@@ -77,7 +78,6 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 				controller: 'ConnectCtrl'
 
 	})
-
 	.state('tab.account', {
 		url: '/account',
 		views: {
