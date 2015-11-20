@@ -2,10 +2,8 @@ module.exports = function authenticated(req, res, next) {
 
     var token = req.headers.authorization || false;
     if (req.isSocket) {
-        console.log('La requete est : ', req.body);
         token = req.body.token;
          delete req.body.token;
-        console.log('j\'ai cassé ton token ', token)
     }
 
     if (!token) {
