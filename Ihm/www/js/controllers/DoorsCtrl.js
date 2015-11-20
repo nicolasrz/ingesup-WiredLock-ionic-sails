@@ -1,6 +1,6 @@
 angular.module('starter.controllers.doors', [])
 
-	.controller('DoorsCtrl', function($stateParams, $scope, Doors, Locations, $ionicListDelegate, $ionicPopup) {
+    .controller('DoorsCtrl', function($stateParams, $scope, Doors, Locations, $ionicListDelegate, $ionicPopup) {
         var currLoc = Locations.get({id:$stateParams.locId}, function() {
             if(currLoc.doors)
             {
