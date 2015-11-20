@@ -9,5 +9,4 @@ angular.module('starter.controllers.home', ['ionic','authserv.service'])
 		io.socket.on('location',function(msg){
 			console.log(msg)
 		})
-
 	}]);
