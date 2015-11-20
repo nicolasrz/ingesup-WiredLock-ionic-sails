@@ -1,12 +1,14 @@
-<div ng-controller='HomeCtrl'>
 <ion-view view-title="Home">
   <ion-content class="padding">
 
-    <h1>HOME</h1>
-        
+    <h2>HOME</h2>
 
+    <ion-list>
+      <ion-item ng-repeat="door in doors">
+        Porte n° {{door.id}} with {{door.logs.length}} logs
+      </ion-item>
+    </ion-list>
 
 
   </ion-content>
 </ion-view>
-</div>

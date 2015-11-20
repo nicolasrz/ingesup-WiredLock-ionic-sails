@@ -19,5 +19,11 @@ module.exports = {
   	user:{
   		model: 'User'
   	}
-  }
+  },
+	toJSON: function(){ // Fonction permettant d’enlever des éléments en clair
+		var obj = this.toObject();
+		//delete obj.password;
+		delete obj.user;
+		return obj
+	}
 };

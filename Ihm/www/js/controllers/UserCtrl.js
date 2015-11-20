@@ -86,7 +86,6 @@ angular.module('starter.controllers.user', ['ionic', 'authserv.service'])
     };
 
     $scope.logOut = function(){
-       console.log('Je suis dans le userCtrl et je passe dans le logout')
        AuthServ.logOut();
        $state.go('connection')
     };

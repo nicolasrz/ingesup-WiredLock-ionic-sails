@@ -92,8 +92,8 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 		url: '/dashboard',
 		views: {
 			'locations': {
-				templateUrl: 'templates/dashboard/listDashboard.html',
-				controller: 'DashboardCtrl'
+				templateUrl: 'templates/location/location.html',
+				controller: 'LocationsCtrl'
 			}
 		},
 			needAuth : true
@@ -110,7 +110,7 @@ angular.module('starter', ['ionic', 'starter.controllers.doors',
 		needAuth : true
 	})
 
-	.state('tab.locations', {
+	.state('tab.location', {
 		url: '/locations',
 		views: {
 			'locations': {

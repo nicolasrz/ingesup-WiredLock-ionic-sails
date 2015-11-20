@@ -4,10 +4,10 @@ angular.module('starter.controllers.locations', [])
 
         $scope.currentIdUser = window.localStorage['id'];
 
-        var locationsList = Locations.query({user:$scope.currentIdUser},function() {
-            $scope.locationsList = locationsList;
-        });
+        /*var locationsList =,function() {
 
+        });*/
+        $scope.locationsList =  Locations.query({user:$scope.currentIdUser});
 
         $scope.data = {
             buttonText: "Ajouter une location"

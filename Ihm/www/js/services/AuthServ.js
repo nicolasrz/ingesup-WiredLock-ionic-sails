@@ -36,7 +36,6 @@ angular.module('authserv.service', [])
                 .success((function(srv){                              // Deuxième couche on passe le service en paramètre
                     return function (data) {                          // Troisième couche, il est alors possible que les couche communique entre elles
 
-                        console.log("success " + data);
                         srv.user = data;                              // Pour récupérer les variables du service, il faut le passer en paramètre sur plusieurs couches.
                         srv.logged = true;                            // sinon, pour lui, le this est celui de la requête post envoyée à l'API
                         return defer.resolve(data);
@@ -66,6 +65,9 @@ angular.module('authserv.service', [])
 
         this.logOut = function (){
             $http.defaults.headers.common["authorization"] = '',
+            window.localStorage['id'] = '';
+            window.localStorage['name'] ='';
+            window.localStorage['email'] ='';
             this.logged = false;
             this.user = null;
         }
