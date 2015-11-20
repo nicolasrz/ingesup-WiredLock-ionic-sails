@@ -19,7 +19,34 @@ module.exports = {
         owners: {
             collection: 'User',
             via: 'doors'
+        },
+        device_identifier:{
+            type:'string'
+        },
+        logs:{
+            collection: 'Log',
+            via: 'door'
         }
+    },
+
+
+
+    afterCreate: function (value, next) {
+        console.log('Door afterCreate:');
+        console.log(value);
+        Log.create({
+            info: value.name,
+            user: "1",
+            door:value.id,
+            data: value.createdAt
+        }).exec(function(err, recordCreated){
+            if(err) return next(err);
+            // do somethign with recordCreated if you need to
+            // ...
+            next();
+        })
+        next();
+    },
     }
 };
 

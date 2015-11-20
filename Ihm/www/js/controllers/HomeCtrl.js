@@ -1,12 +1,38 @@
-angular.module('starter.controllers.home', ['ionic','authserv.service'])
-	.controller('HomeCtrl', ['$scope', '$state' ,'AuthServ', function($scope,$state,AuthServ) {
+angular.module('starter.controllers.home', ['ionic', 'authserv.service'])
+    .controller('HomeCtrl', ['$scope', '$http', 'AuthServ', function ($scope, $http, AuthServ) {
 
+        $scope.locations = {};
+        var id = window.localStorage['id'];
 
-		io.socket.get('/location/?user='+ window.localStorage['id'], function(data){
-			console.log('Je passe après mon iosocket.get'+data)
-			$scope.locations = data;
-		})
-		io.socket.on('location',function(msg){
-			console.log(msg)
-		})
-	}]);
+        $scope.$on('$ionicView.enter', function () {
+            io.socket.get('/location/?user='+ id, { token: $http.defaults.headers.common["authorization"]
+            }, function (data) {
+                $scope.locations = data;
+                console.log($scope.locations[0]);
+            });
+            io.socket.on('location', function (msg) {
+                console.log('coucou bisou io socket location')
+                console.log(msg)
+            })
+        });
+
+        /*$scope.location = {}
+         var headAuth = $http.defaults.headers.common["authorization"]
+         var id = window.localStorage['id']
+
+         $scope.$on('$ionicView.enter', function () {
+
+         io.socket.get({
+         url: '/location/?user='+id,
+         headers: headAuth
+         }, function (data) {
+         console.log(data)
+         $scope.locations = data;
+         console.log($scope.location);
+         });
+         io.socket.on('location', function (msg) {
+         console.log('coucou bisou io socket location')
+         console.log(msg)
+         })
+         });*/
+    }]);
