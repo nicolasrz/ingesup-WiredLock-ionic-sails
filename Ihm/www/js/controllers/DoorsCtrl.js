@@ -36,6 +36,8 @@ angular.module('starter.controllers.doors', [])
                     $scope.doorsList.push(door);
                     currLoc.doors = $scope.doorsList;
                     currLoc.$update($scope.locId);
+                    console.log($scope.locId);
+                    console.log(currLoc.$update($scope.locId));
                     $scope._door = new Doors();
                 });
             }

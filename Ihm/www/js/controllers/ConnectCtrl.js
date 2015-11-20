@@ -14,9 +14,11 @@ angular.module('starter.controllers.connect', ['ionic', 'authserv.service'])
                     window.localStorage['name'] = res.name;
                     window.localStorage['email'] = res.email;
 
+                    console.log(res)
                     $http.defaults.headers.common["authorization"] = res.token;
                     $scope.user = AuthServ.user;
-                    $state.go("tab.locations"); //redirection vers la bonne vue
+                    $state.go("tab.home"); //redirection vers la bonne vue
+
                 }
             };
             var error = function (err) {
@@ -24,6 +26,7 @@ angular.module('starter.controllers.connect', ['ionic', 'authserv.service'])
             };
             // Le .then permet d'attendre la "promesse" de l'asynchrone de connexion
             AuthServ.getConnexion(name, password).then(success, error);
+
         };
 
         $scope.newInscription = function () {

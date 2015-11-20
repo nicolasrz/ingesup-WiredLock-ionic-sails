@@ -9,12 +9,12 @@ angular.module('starter.controllers.user', ['ionic', 'authserv.service'])
    $scope.currentEmail = window.localStorage['email'];
 
 
-    $scope.$on('$ionicView.enter', function(){
+    /*$scope.$on('$ionicView.enter', function(){
        Users.fetch({id:$scope.currentId},function(result){
        },function(err){
           console.log(err)
        })
-    });
+    });*/
 
    $scope.user = new Users();
 
@@ -86,7 +86,6 @@ angular.module('starter.controllers.user', ['ionic', 'authserv.service'])
     };
 
     $scope.logOut = function(){
-       console.log('Je suis dans le userCtrl et je passe dans le logout')
        AuthServ.logOut();
        $state.go('connection')
     };
