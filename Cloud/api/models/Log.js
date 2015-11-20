@@ -10,10 +10,10 @@ module.exports = {
     attributes: {
         date: 'date',
         user: {
-            model: 'user'
+            model: 'User'
         },
-        door: {
-            model: 'door'
+        location: {
+            model: 'Location'
         },
         info: 'String',
         photo: 'String'

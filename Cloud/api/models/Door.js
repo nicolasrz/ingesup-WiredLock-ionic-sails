@@ -1,29 +1,25 @@
 /**
-* Door.js
-*
-* @description :: TODO: You might write a short summary of how this model works and what it represents here.
-* @docs        :: http://sailsjs.org/#!documentation/models
-*/
+ * Door.js
+ *
+ * @description :: TODO: You might write a short summary of how this model works and what it represents here.
+ * @docs        :: http://sailsjs.org/#!documentation/models
+ */
 
 module.exports = {
 
-  attributes: {
-    name:{
-    type:'string',
-    required: true
-  },
-  state:{
-    type: 'boolean',
-    defaultsTo: 'false'
-  },
-  owners: {
-    collection: 'User',
-    via: 'doors'
-  },
-    logs:{
-      collection: 'log',
-      via: 'door'
+    attributes: {
+        name: {
+            type: 'string',
+            required: true
+        },
+        state: {
+            type: 'boolean',
+            defaultsTo: 'false'
+        },
+        owners: {
+            collection: 'User',
+            via: 'doors'
+        }
     }
-  }
 };
 

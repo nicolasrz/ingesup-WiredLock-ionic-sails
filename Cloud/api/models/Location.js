@@ -1,29 +1,33 @@
 /**
-* Location.js
-*
-* @description :: TODO: You might write a short summary of how this model works and what it represents here.
-* @docs        :: http://sailsjs.org/#!documentation/models
-*/
+ * Location.js
+ *
+ * @description :: TODO: You might write a short summary of how this model works and what it represents here.
+ * @docs        :: http://sailsjs.org/#!documentation/models
+ */
 
 module.exports = {
 
-  attributes: {
-  	name:{
-  		type:'string',
-  		required: true
-  	},
-  	doors:{
-  		collection: 'Door',
-  		via: 'name'
-  	},
-  	user:{
-  		model: 'User'
-  	}
-  },
-	toJSON: function(){ // Fonction permettant d’enlever des éléments en clair
-		var obj = this.toObject();
-		//delete obj.password;
-		delete obj.user;
-		return obj
-	}
+    attributes: {
+        name: {
+            type: 'string',
+            required: true
+        },
+        doors: {
+            collection: 'Door',
+            via: 'name'
+        },
+        user: {
+            model: 'User'
+        },
+        logs: {
+            collection: 'log',
+            via: 'location'
+        }
+    },
+    toJSON: function () { // Fonction permettant d’enlever des éléments en clair
+        var obj = this.toObject();
+        //delete obj.password;
+        delete obj.user;
+        return obj
+    }
 };

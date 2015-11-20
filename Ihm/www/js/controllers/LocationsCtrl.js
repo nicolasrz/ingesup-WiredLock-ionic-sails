@@ -55,7 +55,6 @@ angular.module('starter.controllers.locations', [])
 				}
 					
 			});
-			console.log("language de merde");
             $scope._locat.$delete(locat);
             // suppression de la location du tableau.
             $scope.locationsList.splice($scope.locationsList.indexOf(locat),1);

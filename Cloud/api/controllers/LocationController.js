@@ -13,10 +13,9 @@ module.exports = {
         Locations.find({location:userId}).populate('logs').exec(
             function(err,Locations){
                 if(err)return res.error()
-                Location.subscribe(req, _.pluck(Locations,'name'))
+                Location.subscribe(req, _.pluck(Locations,'id'))
                 return res.json(Locations)
             }
         )
     }
 };
-
