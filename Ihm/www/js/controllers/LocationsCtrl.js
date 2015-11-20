@@ -1,6 +1,6 @@
 angular.module('starter.controllers.locations', [])
 
-    .controller('LocationsCtrl', function($scope, Locations, $ionicListDelegate,$state,$ionicPopup) {
+    .controller('LocationsCtrl', function($scope, Locations, Doors, $ionicListDelegate,$state,$ionicPopup) {
 
         $scope.currentIdUser = window.localStorage['id'];
 
@@ -39,12 +39,26 @@ angular.module('starter.controllers.locations', [])
         }
 
         $scope.deleteLocation = function(locat){
-            // suppresion de la location en base
+
+			// Delete all doors in location
+			var _ss = Locations.get({id:locat.id}, function()
+			{
+				_doors = _ss.doors;
+				console.log(_doors);
+
+				for(i=0; i < _doors.length; i++)
+				{
+					mdoor = new Doors();
+					mdoor.$delete(_doors[i], function()
+					{
+					});
+				}
+					
+			});
+			console.log("language de merde");
             $scope._locat.$delete(locat);
             // suppression de la location du tableau.
             $scope.locationsList.splice($scope.locationsList.indexOf(locat),1);
-            
-            
         }
 
         $scope.showDoors = function(m_locId)
