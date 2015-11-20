@@ -12,6 +12,9 @@ module.exports = {
         user: {
             model: 'User'
         },
+        door: {
+            model: 'Door'
+        },
         location: {
             model: 'Location'
         },

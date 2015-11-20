@@ -20,7 +20,7 @@ module.exports = {
             model: 'User'
         },
         logs: {
-            collection: 'log',
+            collection: 'Log',
             via: 'location'
         }
     },
