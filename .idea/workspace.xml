@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08a4a4af-700e-4437-8366-967229ac8899" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ihm/www/js/controllers/HomeCtrl.js" afterPath="$PROJECT_DIR$/Ihm/www/js/controllers/HomeCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cloud/api/models/Log.js" afterPath="$PROJECT_DIR$/Cloud/api/models/Log.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cloud/api/policies/authenticated.js" afterPath="$PROJECT_DIR$/Cloud/api/policies/authenticated.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cloud/config/policies.js" afterPath="$PROJECT_DIR$/Cloud/config/policies.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cloud/api/models/Door.js" afterPath="$PROJECT_DIR$/Cloud/api/models/Door.js" />
     </list>
     <ignored path="WiredLock.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Log.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Cloud/api/models/Log.js">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Ihm/www/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.551724">
-              <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="112" column="24" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -58,31 +54,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Ihm/www/js/app.js">
+      <file leaf-file-name="Log.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Cloud/api/models/Log.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="112" column="24" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
+            <state vertical-scroll-proportion="-10.551724">
+              <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="authenticated.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Cloud/api/policies/authenticated.js">
+      <file leaf-file-name="Door.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Cloud/api/models/Door.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="63" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="policies.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Cloud/config/policies.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4510226">
-              <caret line="33" column="18" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.45232815">
+              <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -117,7 +103,6 @@
         <option value="$PROJECT_DIR$/Ihm/www/js/controllers/userCtrl.js" />
         <option value="$PROJECT_DIR$/Cloud/api/models/Doors.js" />
         <option value="$PROJECT_DIR$/Cloud/config/cors.js" />
-        <option value="$PROJECT_DIR$/Cloud/api/models/Door.js" />
         <option value="$PROJECT_DIR$/Ihm/www/templates/user/connection.html" />
         <option value="$PROJECT_DIR$/Ihm/www/js/services/ConstServ.js" />
         <option value="$PROJECT_DIR$/Ihm/www/templates/user/compte.html" />
@@ -150,6 +135,7 @@
         <option value="$PROJECT_DIR$/Ihm/www/js/controllers/HomeCtrl.js" />
         <option value="$PROJECT_DIR$/Cloud/api/policies/authenticated.js" />
         <option value="$PROJECT_DIR$/Cloud/config/policies.js" />
+        <option value="$PROJECT_DIR$/Cloud/api/models/Door.js" />
       </list>
     </option>
   </component>
@@ -839,13 +825,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Cloud/api/controllers/DoorController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14639397">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Ihm/www/templates/menu/tabs.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3765227">
@@ -871,14 +850,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.740741">
           <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Cloud/api/models/Door.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -954,18 +925,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Cloud/api/models/Log.js">
+    <entry file="file://$PROJECT_DIR$/Ihm/www/js/services/AuthServ.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.551724">
-          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.5242196">
+          <caret line="53" column="54" selection-start-line="53" selection-start-column="54" selection-end-line="53" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Ihm/www/templates/home/home.html">
+    <entry file="file://$PROJECT_DIR$/Cloud/config/policies.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.4510226">
+          <caret line="33" column="18" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cloud/api/policies/authenticated.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05489774">
+          <caret line="3" column="63" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
           <folding />
         </state>
       </provider>
@@ -986,26 +965,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Cloud/api/policies/authenticated.js">
+    <entry file="file://$PROJECT_DIR$/Cloud/api/controllers/DoorController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="63" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
+        <state vertical-scroll-proportion="0.14639397">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Ihm/www/js/services/AuthServ.js">
+    <entry file="file://$PROJECT_DIR$/Ihm/www/templates/home/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5242196">
-          <caret line="53" column="54" selection-start-line="53" selection-start-column="54" selection-end-line="53" selection-end-column="54" />
+        <state vertical-scroll-proportion="-7.1923075">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Cloud/config/policies.js">
+    <entry file="file://$PROJECT_DIR$/Cloud/api/models/Log.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4510226">
-          <caret line="33" column="18" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+        <state vertical-scroll-proportion="-10.551724">
+          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cloud/api/models/Door.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45232815">
+          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
           <folding />
         </state>
       </provider>

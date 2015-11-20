@@ -20,6 +20,10 @@ module.exports = {
     collection: 'User',
     via: 'doors'
   },
+    logs:{
+      collection: 'log',
+      via: 'door'
+    }
   }
 };
 
