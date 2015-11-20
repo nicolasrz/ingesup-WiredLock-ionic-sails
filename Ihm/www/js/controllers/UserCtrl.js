@@ -9,12 +9,12 @@ angular.module('starter.controllers.user', ['ionic', 'authserv.service'])
    $scope.currentEmail = window.localStorage['email'];
 
 
-    $scope.$on('$ionicView.enter', function(){
+    /*$scope.$on('$ionicView.enter', function(){
        Users.fetch({id:$scope.currentId},function(result){
        },function(err){
           console.log(err)
        })
-    });
+    });*/
 
    $scope.user = new Users();
 
