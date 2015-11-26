@@ -45,6 +45,8 @@ module.exports.routes = {
   'put /user/:id': 'UserController.update',
   'delete /user/:id': 'UserController.destroy',
 
+  'get /doors/owners/:userId': 'DoorController.findByUser',
+
   //Création des routes restraintes pour les cartes nfc
   'get /nfc/:id': 'NfcController.find',
   'post /nfc': 'NfcController.create',
